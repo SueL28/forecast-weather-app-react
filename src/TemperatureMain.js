@@ -27,6 +27,7 @@ export default function TemperatureMain() {
             pop: (Math.round(response.data.clouds.all)),
             wind:(Math.round(response.data.wind.speed)),
             description:response.data.weather[0].description,
+            icon: response.data.weather[0].icon,
             emoji:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
             lat: response.data.coord.lat,
             long: response.data.coord.lon
@@ -184,7 +185,7 @@ export default function TemperatureMain() {
             </div>
 
             {/*FORECAST */}
-            <Forecast lat={weather.lat} long={weather.long}/>
+            <Forecast lat={weather.lat} long={weather.long} emoji={weather.icon}/>
 
         </div>
         );
@@ -322,7 +323,7 @@ export default function TemperatureMain() {
             </div>
 
             {/*FORECAST */}
-            <Forecast lat={weather.lat} long={weather.long}/>
+            <Forecast lat={weather.lat} long={weather.long} emoji={weather.icon}/>
 
 
         </div>

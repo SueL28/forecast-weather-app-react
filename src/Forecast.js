@@ -1,12 +1,17 @@
 import axios from "axios";
 import React, {useState} from "react";
 import ConvertTemperature from "./ConvertTemperature";
+import "./Forecast.css"
 
 export default function Forecast(props){
     const [forecast, setForecast] = useState("");
     const[searched, setSearched]= useState(false);
     let lat = props.lat;
     let long = props.long;
+    let emoji = props.emoji;
+    let emojiLink = `http://openweathermap.org/img/wn/${emoji}@2x.png`
+    console.log(emoji)
+
 
     let date = new Date();
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -37,8 +42,8 @@ export default function Forecast(props){
                 <span className="forecast-day">{days[(new Date(forecast[0].dt * 1000))]}</span>
     
                 <div className="weather-status-font">{forecast[0].weather[0].description}</div>
-                <div>☀</div>
-                {/*<div><img className="emoji-forecast" src={props} alt={props}></img></div>*/}
+
+                <div><img className="emoji-forecast" src={emojiLink} alt={forecast[0].weather[0].description}></img></div>
                 <div className="forecast-high-number"><ConvertTemperature temp={Math.round(forecast[0].temp.max)}/></div>
                 <div className="weather-status-font">HIGH</div>
                 <div className="forecast-low-number"><ConvertTemperature temp={Math.round(forecast[0].temp.min)}/></div>
