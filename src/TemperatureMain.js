@@ -5,6 +5,7 @@ import "./TemperatureMain.css";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import ConvertTemperature from "./ConvertTemperature"
+import Forecast from "./Forecast";
 
 export default function TemperatureMain() {
     let [updated, setUpdated] = useState(false);
@@ -15,6 +16,7 @@ export default function TemperatureMain() {
 
 
     function getSearched(response){
+        console.log(response.data)
         setWeather({
             dt: new Date (response.data.dt * 1000),
             temp_current: (Math.round(response.data.main.temp)),
@@ -25,7 +27,9 @@ export default function TemperatureMain() {
             pop: (Math.round(response.data.clouds.all)),
             wind:(Math.round(response.data.wind.speed)),
             description:response.data.weather[0].description,
-            emoji:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+            emoji:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+            lat: response.data.coord.lat,
+            long: response.data.coord.lon
 
         })
         setUpdated(true);
@@ -179,6 +183,8 @@ export default function TemperatureMain() {
                 </div>
             </div>
 
+            {/*FORECAST */}
+            <Forecast lat={weather.lat} long={weather.long}/>
 
         </div>
         );
@@ -314,6 +320,9 @@ export default function TemperatureMain() {
                     </div>
                 </div>
             </div>
+
+            {/*FORECAST */}
+            <Forecast lat={weather.lat} long={weather.long}/>
 
 
         </div>
