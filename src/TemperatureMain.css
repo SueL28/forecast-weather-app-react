@@ -200,14 +200,17 @@ html{
       color: var(--grey-colour);
     }
     
+    .humidity-emoji{
+      opacity: 10;
+    }
     
-    .curr-rain-section {
+    .curr-humidity-section {
       text-align: center;
       font-weight: 500;
       font-size: 18pt;
     }
     
-    .rain-number {
+    .humidity-number {
       display: block;
       margin: 0 auto;
       color: var(--grey-colour);

@@ -1,7 +1,7 @@
 .Footer {
     margin-bottom: 30px;
     text-align: center;
-    color: rgb(77, 76, 72);
+    color: rgb(41, 41, 39);
     font-family: "Hind", sans-serif;
     font-style: bolder;
     font-size: 12pt;
@@ -9,7 +9,7 @@
   }
   
   .Footer a {
-    color: rgb(0, 110, 197);
+    color: rgb(6, 136, 235);
     text-decoration: none;
     font-family: "Hind", sans-serif;
     cursor: pointer;

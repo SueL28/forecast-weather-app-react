@@ -3,3 +3,8 @@
 .weather-status-font{
     text-transform: capitalize;
 }
+
+.forecast-grid{
+    display: flex;
+    justify-content: space-evenly;
+}

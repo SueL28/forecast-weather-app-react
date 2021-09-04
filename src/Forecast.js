@@ -1,25 +1,22 @@
 import axios from "axios";
 import React, {useState} from "react";
-import ConvertTemperature from "./ConvertTemperature";
+
 import "./Forecast.css"
+import ForecastDay from "./ForecastDay";
 
 export default function Forecast(props){
     const [forecast, setForecast] = useState("");
     const[searched, setSearched]= useState(false);
     let lat = props.lat;
     let long = props.long;
-    let emoji = props.emoji;
-    let emojiLink = `http://openweathermap.org/img/wn/${emoji}@2x.png`
-    console.log(emoji)
+    
 
-
-    let date = new Date();
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     function getWeather(response){
+      console.log(response.data)
         setForecast(response.data.daily)
         setSearched(true)
-        console.log(forecast)
+   
 
         
     }
@@ -36,21 +33,24 @@ export default function Forecast(props){
     
             <hr />
     
-            <div className="row">
-              <div className="col-sm forecast-day-container">
-                
-                <span className="forecast-day">{days[(new Date(forecast[0].dt * 1000))]}</span>
-    
-                <div className="weather-status-font">{forecast[0].weather[0].description}</div>
+              <div className="container">
+                <div className="row forecast-grid">
+                {forecast.map(function(dailyForecast, index){
+                  if (index <6){
 
-                <div><img className="emoji-forecast" src={emojiLink} alt={forecast[0].weather[0].description}></img></div>
-                <div className="forecast-high-number"><ConvertTemperature temp={Math.round(forecast[0].temp.max)}/></div>
-                <div className="weather-status-font">HIGH</div>
-                <div className="forecast-low-number"><ConvertTemperature temp={Math.round(forecast[0].temp.min)}/></div>
-                <p className="weather-status-font">LOW</p>
+                    return (
+                  
+                      <div className="col-sm" key={index}>
+                      <ForecastDay data={dailyForecast} />
+                      </div>
+                    
+                    );
+                  }
+                })}
+                </div>
               </div>
               
-            </div>
+            
           </div>
         </div>
       );
@@ -63,6 +63,8 @@ export default function Forecast(props){
         return (
             <div className="Forecast">
                 <h3 className="forecast-font">7 Day Forecast</h3>
+                
+                <ForecastDay data={forecast[0]}/>
     
                 <hr />
             </div>

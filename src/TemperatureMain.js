@@ -16,7 +16,6 @@ export default function TemperatureMain() {
 
 
     function getSearched(response){
-        console.log(response.data)
         setWeather({
             dt: new Date (response.data.dt * 1000),
             temp_current: (Math.round(response.data.main.temp)),
@@ -24,7 +23,7 @@ export default function TemperatureMain() {
             high: (Math.round(response.data.main.temp_max)),
             low: (Math.round(response.data.main.temp_min)),
             city_name: response.data.name,
-            pop: (Math.round(response.data.clouds.all)),
+            humidity: (Math.round(response.data.main.humidity)),
             wind:(Math.round(response.data.wind.speed)),
             description:response.data.weather[0].description,
             icon: response.data.weather[0].icon,
@@ -42,7 +41,7 @@ export default function TemperatureMain() {
         let apiKey = `a0ec055234934001bdc16c33f46f3ecb`
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
         axios.get(apiUrl).then(getSearched)
-        console.log(apiUrl)
+
 
 
       }
@@ -149,16 +148,16 @@ export default function TemperatureMain() {
                         </div>
                         </div>
                     </div>
-                    <div className="col-sm curr-rain-section">
+                    <div className="col-sm curr-humidity-section">
                         <span
                             className="factor-header-colour"
                             role="img"
-                            aria-label="rain-umbrella"
+                            aria-label="hot-emoji"
                         >
-                            POP ☔
+                            HUMIDITY 🥵
                         </span>
                         <div className="row">
-                            <div className="rain-number">{Math.trunc(weather.pop)}%</div>
+                            <div className="humidity-number">{Math.trunc(weather.humidity)}%</div>
                         </div>
                     </div>
                     <div className="col-sm curr-low-section">
@@ -185,7 +184,7 @@ export default function TemperatureMain() {
             </div>
 
             {/*FORECAST */}
-            <Forecast lat={weather.lat} long={weather.long} emoji={weather.icon}/>
+            <Forecast lat={weather.lat} long={weather.long} data={weather}/>
 
         </div>
         );
@@ -287,16 +286,16 @@ export default function TemperatureMain() {
                         </div>
                         </div>
                     </div>
-                    <div className="col-sm curr-rain-section">
+                    <div className="col-sm curr-humidity-section">
                         <span
                             className="factor-header-colour"
                             role="img"
-                            aria-label="rain-umbrella"
+                            aria-label="hot-emoji"
                         >
-                            POP ☔
+                            HUMIDITY 🥵
                         </span>
                         <div className="row">
-                            <div className="rain-number">-%</div>
+                            <div className="humidity-number">-%</div>
                         </div>
                     </div>
                     <div className="col-sm curr-low-section">
@@ -323,7 +322,7 @@ export default function TemperatureMain() {
             </div>
 
             {/*FORECAST */}
-            <Forecast lat={weather.lat} long={weather.long} emoji={weather.icon}/>
+            <Forecast lat={weather.lat} long={weather.long} data={weather}/>
 
 
         </div>
