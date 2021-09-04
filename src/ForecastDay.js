@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ConvertTemperature from "./ConvertTemperature";
 
 export default function ForecastDay(props){
-    console.log(props.data)
+
 
     
     function date(){
