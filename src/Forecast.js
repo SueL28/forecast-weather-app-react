@@ -1,5 +1,6 @@
+import { cleanup } from "@testing-library/react";
 import axios from "axios";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 import "./Forecast.css"
 import ForecastDay from "./ForecastDay";
@@ -9,6 +10,10 @@ export default function Forecast(props){
     const[searched, setSearched]= useState(false);
     let lat = props.lat;
     let long = props.long;
+
+    useEffect(() => {
+      setSearched(false); //put code of what you want to trigger if variables change
+    }, [props.lat, props.long]) //put in the [] variables that change to trigger the effect
     
 
 

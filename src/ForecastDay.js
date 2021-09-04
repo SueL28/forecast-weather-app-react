@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ConvertTemperature from "./ConvertTemperature";
 
 export default function ForecastDay(props){
@@ -14,7 +14,7 @@ export default function ForecastDay(props){
         return writtenDay;
     } 
 
-
+ 
     return(
         
         <div className="col-sm">
@@ -31,5 +31,5 @@ export default function ForecastDay(props){
                  
             
     );
-    
+
 }
