@@ -4,8 +4,6 @@ import ConvertTemperature from "./ConvertTemperature";
 export default function ForecastDay(props){
     console.log(props.data)
 
-    let emoji = props.emoji;
-    let emojiLink = `http://openweathermap.org/img/wn/${emoji}@2x.png`
     
     function date(){
         let date = new Date(props.data.dt * 1000);
