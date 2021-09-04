@@ -13,7 +13,7 @@ export default function Forecast(props){
 
 
     function getWeather(response){
-      console.log(response.data)
+  
         setForecast(response.data.daily)
         setSearched(true)
    
@@ -35,7 +35,7 @@ export default function Forecast(props){
     
               <div className="container">
                 <div className="row forecast-grid">
-                {forecast.map(function(dailyForecast, index){
+                {forecast.map(function(dailyForecast, index){  //MAP IS A LOOP
                   if (index <6){
 
                     return (
@@ -63,8 +63,6 @@ export default function Forecast(props){
         return (
             <div className="Forecast">
                 <h3 className="forecast-font">7 Day Forecast</h3>
-                
-                <ForecastDay data={forecast[0]}/>
     
                 <hr />
             </div>
