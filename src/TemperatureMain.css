@@ -200,10 +200,7 @@ html{
       color: var(--grey-colour);
     }
     
-    .humidity-emoji{
-      opacity: 10;
-    }
-    
+
     .curr-humidity-section {
       text-align: center;
       font-weight: 500;
