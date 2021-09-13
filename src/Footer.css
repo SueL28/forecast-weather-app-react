@@ -1,18 +1,18 @@
 .Footer {
     margin-bottom: 30px;
     text-align: center;
-    color: rgb(37, 37, 36);
+    color: rgb(0, 0, 0);
     font-family: "Hind", sans-serif;
     font-style: bolder;
     font-size: 12pt;
     padding-bottom: 197px;
-    opacity: 0.75;
+    font-weight: 500;
+    opacity: 0.8;
   }
-
 
   
   .Footer a {
-    color: rgb(2, 101, 177);
+    color: rgb(8, 107, 184);
     text-decoration: none;
     font-family: "Hind", sans-serif;
     cursor: pointer;
