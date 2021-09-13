@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import ConvertTemperature from "./ConvertTemperature";
 
 export default function ForecastDay(props){
